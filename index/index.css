@@ -1,0 +1,11 @@
+.buttons {
+    width: 100%;
+    justify-content: left;
+    text-align: center;
+}
+
+.programs {
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+}

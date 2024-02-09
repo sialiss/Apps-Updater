@@ -10,9 +10,9 @@ app.whenReady().then(() => {
 			preload: path.join(__dirname, "preload.js")
 		}
 	})
-	
-	
-	win.loadFile("index.html")
+
+
+	win.loadFile("index/index.html")
 })
 
 
