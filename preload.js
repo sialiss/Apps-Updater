@@ -21,5 +21,29 @@ contextBridge.exposeInMainWorld("Apps", {
                 }
             })
         })
+    },
+    info: (appId) => {
+        return new Promise((res, rej) => {
+            exec(`flatpak info ${appId}`, (error, stdout) => {
+                if (error) {
+                    rej(error)
+                }
+                else {
+                    res(stdout)
+                }
+            })
+        })
+    },
+    update: (appId) => {
+        return new Promise((res, rej) => {
+            exec(`flatpak update ${appId}`, (error, stdout) => {
+                if (error) {
+                    rej(error)
+                }
+                else {
+                    res(stdout)
+                }
+            })
+        })
     }
 })

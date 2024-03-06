@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .buttons {
     width: 100%;
     justify-content: left;
@@ -7,4 +13,21 @@
 .programs {
     width: 100%;
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.program {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #0001;
+    border-radius: 1rem;
+    box-shadow: 0px 0.3rem 1rem -0.5rem #0003;
+    cursor: pointer;
+    transition: .2s;
+}
+.program:hover {
+    box-shadow: 0 1rem 1rem -0.5rem #0002;
+    transition: .1s;
+    z-index: 1;
 }
