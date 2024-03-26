@@ -8,6 +8,16 @@ async function info(appId) {
     }
 }
 
+async function update(appId) {
+    try {
+        return await Apps.update(appId)
+    }
+    catch(error) {
+        console.error(error)
+        return "Oh no an error!"
+    }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     const appId = sessionStorage.getItem("currentApp")
     const mainEl = document.querySelector(".app-info")
