@@ -13,10 +13,10 @@ contextBridge.exposeInMainWorld("Apps", {
                 else {
                     res(
                         stdout
-                        .split("\n") // split lines
-                        .filter(n=>n.replace(/\s+/, "").length) // skip empty lines (just in case)
-                        .map(line => line.split("\t")) // separate each line into array of values
-                        .map(line => ({name:line[0], id:line[1], version:line[2]})) // put values into an object
+                            .split("\n") // split lines
+                            .filter(n => n.replace(/\s+/, "").length) // skip empty lines (just in case)
+                            .map(line => line.split("\t")) // separate each line into array of values
+                            .map(line => ({ name: line[0], id: line[1], version: line[2] })) // put values into an object
                     )
                 }
             })
@@ -36,7 +36,7 @@ contextBridge.exposeInMainWorld("Apps", {
     },
     update: (appId) => {
         return new Promise((res, rej) => {
-            exec(`flatpak update ${appId}`, (error, stdout) => {
+            exec(`flatpak update -y ${appId}`, (error, stdout) => {
                 if (error) {
                     rej(error)
                 }
@@ -45,5 +45,29 @@ contextBridge.exposeInMainWorld("Apps", {
                 }
             })
         })
-    }
+    },
+    run: (appId) => {
+        return new Promise((res, rej) => {
+            exec(`flatpak run ${appId}`, (error, stdout) => {
+                if (error) {
+                    rej(error)
+                }
+                else {
+                    res(stdout)
+                }
+            })
+        })
+    },
+    uninstall: (appId) => {
+        return new Promise((res, rej) => {
+            exec(`flatpak uninstall -y ${appId}`, (error, stdout) => {
+                if (error) {
+                    rej(error)
+                }
+                else {
+                    res(stdout)
+                }
+            })
+        })
+    },
 })
