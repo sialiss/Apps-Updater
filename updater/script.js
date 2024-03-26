@@ -44,20 +44,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     const appInfo = await info(appId)
     mainEl.textContent = appInfo
 
+    const btns_container = document.querySelector(".buttons-container")
+
     const update_btn = document.createElement("button")
-    update_btn.className = "update-btn"
+    update_btn.className = "buttons"
     update_btn.innerText = "update"
-    mainEl.appendChild(update_btn)
+    btns_container.appendChild(update_btn)
 
     const run_btn = document.createElement("button")
-    run_btn.className = "run-btn"
+    run_btn.className = "buttons"
     run_btn.innerText = "run"
-    mainEl.appendChild(run_btn)
+    btns_container.appendChild(run_btn)
 
     const uninstall_btn = document.createElement("button")
-    uninstall_btn.className = "uninstall-btn"
+    uninstall_btn.className = "buttons"
     uninstall_btn.innerText = "uninstall"
-    mainEl.appendChild(uninstall_btn)
+    btns_container.appendChild(uninstall_btn)
 
     update_btn.addEventListener("click", async () => { await update(appId) })
     run_btn.addEventListener("click", async () => { await run(appId) })

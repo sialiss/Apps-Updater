@@ -31,8 +31,11 @@ a {
 
 .wrapper {
     display: grid;
-    justify-items: center;
     gap: 20px;
+}
+
+.centerify {
+    justify-items: center;
 }
 
 .flex {
@@ -45,14 +48,6 @@ header {
     color: #FFFFFF;
     justify-content: space-around;
     text-align: center;
-}
-
-/* .main {
-    align-items: stretch;
-} */
-
-.main div {
-    padding: 0 1%;
 }
 
 footer {

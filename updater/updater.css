@@ -1,0 +1,12 @@
+.button {
+    justify-content: left;
+    text-align: center;
+    padding: 3%;
+}
+
+.buttons-container {
+    width: 100%;
+    justify-content: left;
+    text-align: center;
+    gap: 10px;
+}
