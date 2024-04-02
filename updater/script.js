@@ -41,8 +41,11 @@ async function uninstall(appId) {
 document.addEventListener("DOMContentLoaded", async () => {
     const appId = sessionStorage.getItem("currentApp")
     const mainEl = document.querySelector(".app-info")
+    const appName = document.querySelector(".app-name")
 
     if (appId) {
+        appName.innerText = appId
+
         const appInfo = await info(appId)
         mainEl.textContent = appInfo
 
@@ -68,6 +71,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         uninstall_btn.addEventListener("click", async () => { await uninstall(appId) })
     }
     else {
-        mainEl.textContent = "Choose an app!"
+        appName.innerText = "Choose an app!"
     }
 })

@@ -4,6 +4,7 @@
     "start": "electron ."
   },
   "dependencies": {
-    "electron": "^28.2.0"
+    "electron": "^28.2.0",
+    "electron-store": "^8.2.0"
   }
 }

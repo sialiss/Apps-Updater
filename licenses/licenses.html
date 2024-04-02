@@ -14,8 +14,15 @@
         <a class="" href="../updater/updater.html">Updater</a>
         <a class="highlighted" href="../licenses/licenses.html">Licenses</a>
     </header>
-    <div class="flex main">
-        <h1>Hello, its licenses</h1>
+    <div class="wrapper main">
+        <h1 class="app-name"></h1>
+        <div class="flex buttons-container hidden">
+            <p>Licence expiration:</p>
+            <input type="date" id="expiration-date">
+            <input type="time" id="expiration-time">
+            <p>Notify</p>
+            <input type="checkbox" id="notify">
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>
