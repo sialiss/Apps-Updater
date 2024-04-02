@@ -21,7 +21,7 @@ app.whenReady().then(() => {
             setTimeout(() => {
                 new Notification({
                     title: appId,
-                    body: "License expired! Check your license."
+                    body: "Лицензия приложения истекла!"
                 }).show()
             }, timeDiff)
         }

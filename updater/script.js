@@ -4,7 +4,7 @@ async function info(appId) {
     }
     catch(error) {
         console.error(error)
-        return "Info unavailable!"
+        return "Информация недоступна!"
     }
 }
 
@@ -14,7 +14,7 @@ async function update(appId) {
     }
     catch(error) {
         console.error(error)
-        return "Oh no an error!"
+        return "Произошла ошибка!"
     }
 }
 
@@ -24,7 +24,7 @@ async function run(appId) {
     }
     catch(error) {
         console.error(error)
-        return "Oh no an error!"
+        return "Произошла ошибка!"
     }
 }
 
@@ -34,7 +34,7 @@ async function uninstall(appId) {
     }
     catch(error) {
         console.error(error)
-        return "Oh no an error!"
+        return "Произошла ошибка!"
     }
 }
 
@@ -57,9 +57,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         update_btn.className, run_btn.className, uninstall_btn.className = "buttons"
         
-        update_btn.innerText = "update"
-        run_btn.innerText = "run"
-        uninstall_btn.innerText = "uninstall"
+        update_btn.innerText = "Обновить"
+        run_btn.innerText = "Запустить"
+        uninstall_btn.innerText = "Удалить"
 
         btns_container.appendChild(update_btn)
         btns_container.appendChild(run_btn)
@@ -85,6 +85,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         license_settings_container.classList.remove("hidden")
     }
     else {
-        appName.innerText = "Choose an app!"
+        appName.innerText = "Выберите приложение!"
     }
 })
