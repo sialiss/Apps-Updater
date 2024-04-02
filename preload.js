@@ -1,4 +1,4 @@
-const { contextBridge } = require("electron")
+const { contextBridge, ipcRenderer } = require("electron")
 const { exec } = require("child_process")
 
 contextBridge.exposeInMainWorld("Apps", {
@@ -70,4 +70,7 @@ contextBridge.exposeInMainWorld("Apps", {
             })
         })
     },
+    notify: (appId, dateString) => {
+        ipcRenderer.invoke("notify", appId, dateString)
+    }
 })

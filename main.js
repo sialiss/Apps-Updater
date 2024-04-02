@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron/main")
+const { app, BrowserWindow, ipcMain, Notification } = require("electron/main")
 const path = require("node:path")
 
 
@@ -12,8 +12,20 @@ app.whenReady().then(() => {
 		}
 	})
 
-
 	win.loadFile("index/index.html")
+
+	ipcMain.handle("notify", (event, appId, dateString) => {
+		const date = new Date(dateString)
+        const timeDiff = date - Date.now()
+        if (timeDiff > 0) {
+            setTimeout(() => {
+                new Notification({
+                    title: appId,
+                    body: "License expired! Check your license."
+                }).show()
+            }, timeDiff)
+        }
+	})
 })
 
 
