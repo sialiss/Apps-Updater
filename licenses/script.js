@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (timeDiff > 0) {
                     setTimeout(() => {
                         new Notification(appId, {
-                            body: "Licence expired"
+                            body: "License expired! Check your license."
                         })
                     }, timeDiff)
                 }
