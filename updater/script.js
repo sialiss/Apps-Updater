@@ -75,11 +75,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         const dateEl = document.querySelector("#expiration-date")
         const timeEl = document.querySelector("#expiration-time")
         const notifyEl = document.querySelector("#notify")
+        const clearEl = document.querySelector("#clear")
 
         notifyEl.addEventListener("click", () => {
             const dateString = `${dateEl.value} ${timeEl.value}`
             Apps.notify(appId, dateString)
             alert(`Лицензия приложения истечёт ${dateEl.value} ${timeEl.value}`)
+        })
+
+        clearEl.addEventListener("click", () => {
+            Apps.clearNotification(appId)
+            alert("Таймер лицензии отменён")
         })
 
         license_settings_container.classList.remove("hidden")

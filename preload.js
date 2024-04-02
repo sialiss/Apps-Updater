@@ -1,5 +1,8 @@
 const { contextBridge, ipcRenderer } = require("electron")
 const { exec } = require("child_process")
+const Store = require("electron-store")
+
+const store = new Store()
 
 contextBridge.exposeInMainWorld("Apps", {
     list: () => {
@@ -72,5 +75,11 @@ contextBridge.exposeInMainWorld("Apps", {
     },
     notify: (appId, dateString) => {
         ipcRenderer.invoke("notify", appId, dateString)
+    },
+    clearNotification: (appId) => {
+        ipcRenderer.invoke("clear-notification", appId)
+    },
+    licences: () => {
+        return store.get("licences")
     }
 })
