@@ -78,9 +78,25 @@ document.addEventListener("DOMContentLoaded", async () => {
         const clearEl = document.querySelector("#clear")
 
         notifyEl.addEventListener("click", () => {
-            const dateString = `${dateEl.value} ${timeEl.value}`
-            Apps.notify(appId, dateString)
-            alert(`Лицензия приложения истечёт ${dateEl.value} ${timeEl.value}`)
+            const currentDate = new Date();
+            const year = dateEl.value[0] + dateEl.value[1] + dateEl.value[3] + dateEl.value[4]
+            const inputDate = new Date(
+                dateEl.value[0] + dateEl.value[1] + dateEl.value[2] + dateEl.value[3], 
+                dateEl.value[5] + dateEl.value[6] - 1, 
+                dateEl.value[8] + dateEl.value[9],
+                timeEl.value[0] + timeEl.value[1],
+                timeEl.value[3] + timeEl.value[4])
+            if (dateEl.value == '' || timeEl.value == '') {
+                alert('Сначала выберите дату и время')
+            }
+            else if (inputDate < currentDate) {
+                alert('Указанная дата уже прошла')
+            }
+            else {
+                const dateString = `${dateEl.value} ${timeEl.value}`
+                Apps.notify(appId, dateString)
+                alert(`Лицензия приложения истечёт ${dateEl.value} ${timeEl.value}`)
+            }
         })
 
         clearEl.addEventListener("click", () => {

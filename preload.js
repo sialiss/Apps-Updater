@@ -45,6 +45,7 @@ contextBridge.exposeInMainWorld("Apps", {
                 }
                 else {
                     res(stdout)
+                    alert('Приложение было обновлено!')
                 }
             })
         })
