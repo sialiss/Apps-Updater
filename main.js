@@ -46,12 +46,23 @@ app.on("window-all-closed", () => {
 	app.quit()
 })
 
+const xSetTimeout = (() => {
+    const MAX_INT = 2 ** 31 - 1;
+
+    return function _xSetTimeout(cb, timeout) {
+        if (timeout <= MAX_INT)
+            return setTimeout(cb, timeout);
+        return setTimeout(
+            () => _xSetTimeout(cb, timeout - MAX_INT),
+            MAX_INT);
+    }
+})();    
 
 function setTimer(appIdEscaped, dateString) {
 	const date = new Date(dateString)
 	const timeDiff = date - Date.now()
 	if (timeDiff > 0) {
-		const timer = setTimeout(() => {
+		const timer = xSetTimeout(() => {
 			new Notification({
 				title: appIdEscaped.replace(/,/g, "."),
 				body: "Лицензия приложения истекла!"

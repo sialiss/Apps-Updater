@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Updater
+Exec=gnome-terminal -e /home/camellia/Документы/programming/JS/Apps-Updater/updater.sh
+Comment=
+Terminal=true
+PrefersNonDefaultGPU=false
+Icon=cinnamon-panel-launcher
+Type=Application

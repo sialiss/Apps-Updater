@@ -1,7 +1,4 @@
 #!/bin/bash
-
-# Переходим в директорию
+export PATH="/home/camellia/n/bin/:$PATH"
 cd /home/camellia/Документы/programming/JS/Apps-Updater
-
-# Запуск приложения через npm start
-npm start
+/home/camellia/n/bin/node /home/camellia/n/bin/npm start
